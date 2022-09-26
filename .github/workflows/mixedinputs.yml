@@ -1,37 +1,21 @@
-name: Mixed inputs
+name: Deploy
 
 on:
   workflow_dispatch:
-    branches:
-      - WEBAPI-1554_Resurrect-HTML2PDF-lambda-deployments-via-GitHub-action_Alex-Leaver
-      - main
+#    branches:
+#      - WEBAPI-1554_Resurrect-HTML2PDF-lambda-deployments-via-GitHub-action_Alex-Leaver
+#      - main
     inputs:
-      name:
-        type: choice
-        description: Who to greet
-        required: true
-        options:
-          - monalisa
-          - cschleiden
-      message:
-        description: Something
-        required: true
-      use-emoji:
-        type: boolean
-        required: true
-        description: Include emojis
       environment:
-        description: Something
-        required: false
+        description: Environment
+        required: true
         type: environment
 
 jobs:
-  greet:
+  deploy:
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
 
     steps:
-      - name: Send greeting
-        run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", ""]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }} ${{ github.env }}"
-
-      - name: Context
-        run: echo "$GITHUB_CONTEXT"
+      - run: |
+          echo "Env: ${{ github.event.inputs.environment }}"
