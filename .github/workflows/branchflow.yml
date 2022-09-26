@@ -4,32 +4,32 @@ name: Branch inputs
 
 on:
   - push:
-    branches:
-      - a_branch
-      - main
+      branches:
+        - a_branch
+        - main
   - workflow_dispatch:
-    branches:
-      - a_branch
-      - main
-    inputs:
-      name:
-        type: choice
-        description: Who to greet
-        required: true
-        options:
-          - monalisa
-          - cschleiden
-      message:
-        description: Something
-        required: true
-      use-emoji:
-        type: boolean
-        required: true
-        description: Include emojis
-      environment:
-        description: Something
-        required: false
-        type: environment
+      branches:
+        - a_branch
+        - main
+      inputs:
+        name:
+          type: choice
+          description: Who to greet
+          required: true
+          options:
+            - monalisa
+            - cschleiden
+        message:
+          description: Something
+          required: true
+        use-emoji:
+          type: boolean
+          required: true
+          description: Include emojis
+        environment:
+          description: Something
+          required: false
+          type: environment
 
 jobs:
   greet:
