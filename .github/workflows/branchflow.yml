@@ -3,7 +3,11 @@ name: Branch inputs
 #on: [push]
 
 on:
-  workflow_dispatch:
+  - push:
+    branches:
+      - a_branch
+      - main
+  - workflow_dispatch:
     branches:
       - a_branch
       - main
