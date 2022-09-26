@@ -1,29 +1,31 @@
 name: Branch inputs
 
-on:
-  workflow_dispatch:
-    branches:
-      - a_branch
-      - main
-    inputs:
-      name:
-        type: choice
-        description: Who to greet
-        required: true
-        options:
-          - monalisa
-          - cschleiden
-      message:
-        description: Something
-        required: true
-      use-emoji:
-        type: boolean
-        required: true
-        description: Include emojis
-      environment:
-        description: Something
-        required: false
-        type: environment
+on: [push]
+
+#on:
+#  workflow_dispatch:
+#    branches:
+#      - a_branch
+#      - main
+#    inputs:
+#      name:
+#        type: choice
+#        description: Who to greet
+#        required: true
+#        options:
+#          - monalisa
+#          - cschleiden
+#      message:
+#        description: Something
+#        required: true
+#      use-emoji:
+#        type: boolean
+#        required: true
+#        description: Include emojis
+#      environment:
+#        description: Something
+#        required: false
+#        type: environment
 
 jobs:
   greet:
