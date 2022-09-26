@@ -2,9 +2,6 @@ name: Deploy
 
 on:
   workflow_dispatch:
-#    branches:
-#      - WEBAPI-1554_Resurrect-HTML2PDF-lambda-deployments-via-GitHub-action_Alex-Leaver
-#      - main
     inputs:
       environment:
         description: Environment
@@ -18,5 +15,5 @@ jobs:
     environment: ${{ github.event.inputs.environment }}
 
     steps:
-      - name: Deploy to ${{ github.event.inputs.environment }}
-        run: echo ${{secrets.TEST }} | sed 's/./& /g'
+      - name: Hello
+        run: echo World
